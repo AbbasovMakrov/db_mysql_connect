@@ -5,25 +5,6 @@ try{
 }catch(PDOException  $e ){
 echo "Error: ".$e;
 }
-function url(){
-    return sprintf(
-        "%s://%s%s",
-        isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-        $_SERVER['SERVER_NAME'],
-        $_SERVER['REQUEST_URI']
-    );
-}
-function url2()
-{
-   return sprintf
-   (
-       "%s://%s",
-       isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-   $_SERVER['SERVER_NAME']
-   );
-
-
-}
 function getData($db,$query,$parm = []) {
   $stmt = $db->prepare($query);
   $stmt->execute($parm);
